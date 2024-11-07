@@ -100,7 +100,20 @@ mkdir -p ~/esp
 cd ~/esp
 git clone --recursive https://github.com/espressif/esp-idf.git
 ```
+ESP-IDF is downloaded into ``~/esp/esp-idf``.
+
+
 **Step 3. Set up the Tools**
+
+Aside from the ESP-IDF, you also need to install the tools used by ESP-IDF, such as the compiler, debugger, Python packages, etc, for projects supporting {IDF_TARGET_NAME}.
+
+.. code-block:: bash
+
+    cd ~/esp/esp-idf
+    ./install.sh {IDF_TARGET_PATH_NAME}
+
+
+
 
 
 
