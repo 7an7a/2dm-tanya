@@ -56,5 +56,59 @@ It is strongly recommended to also install ccache_ for faster builds.
      xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
 
    Then you need to install the XCode command line tools to continue. You can install these by running ``xcode-select --install``.
-    
 
+## Installing Python 3
+
+
+Based on macOS `Catalina 10.15 release notes`_, use of Python 2.7 is not recommended and Python 2.7 is not included by default in future versions of macOS. Check what Python you currently have
+
+```
+python --version
+```
+
+If the output is like ``Python 2.7.17``, your default interpreter is Python 2.7. If so, also check if Python 3 is not already installed on your computer
+
+
+```
+  python3 --version
+```
+
+
+If the above command returns an error, it means Python 3 is not installed.
+
+
+Below is an overview of the steps to install Python 3.
+
+
+  - Installing with [HomeBrew](https://brew.sh/) can be done as follows
+
+```
+  brew install python3
+```
+
+ **Step 2. Get ESP-IDF**
+ 
+To build applications for the {IDF_TARGET_NAME}, you need the software libraries provided by Espressif in [ESP-IDF repository](https://github.com/espressif/esp-idf)
+
+To get ESP-IDF, navigate to your installation directory and clone the repository with ``git clone``, following instructions below specific to your operating system.
+
+Open Terminal, and run the following commands:
+
+
+```
+mkdir -p ~/esp
+cd ~/esp
+git clone --recursive https://github.com/espressif/esp-idf.git
+```
+**Step 3. Set up the Tools**
+
+
+
+
+
+
+
+
+
+
+    
