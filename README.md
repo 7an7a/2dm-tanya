@@ -219,7 +219,29 @@ Now you can run ``get_idf`` to set up or refresh the esp-idf environment in any 
 
 Technically, you can add ``export.sh`` to your shell's profile directly; however, it is not recommended. Doing so activates IDF virtual environment in every terminal session (including those where IDF is not needed), defeating the purpose of the virtual environment and likely affecting other software.
 
+Step 5. First Steps on ESP-IDF
+Tip: Updating ESP-IDF
+It is recommended to update ESP-IDF from time to time, as newer versions fix bugs and/or provide new features. Please note that each ESP-IDF major and minor release version has an associated support period, and when one release branch is approaching end of life (EOL), all users are encouraged to upgrade their projects to more recent ESP-IDF releases, to find out more about support periods, see :doc:`ESP-IDF Versions <../versions>`.
 
+The simplest way to do the update is to delete the existing esp-idf folder and clone it again, as if performing the initial installation described in :ref:`get-started-get-esp-idf`.
+
+Another solution is to update only what has changed. :ref:`The update procedure depends on the version of ESP-IDF you are using <updating>`.
+
+After updating ESP-IDF, execute the Install script again, in case the new ESP-IDF version requires different versions of tools. See instructions at :ref:`get-started-set-up-tools`.
+
+Once the new tools are installed, update the environment using the Export script. See instructions at :ref:`get-started-set-up-env`.
+
+Related Documents
+:doc:`establish-serial-connection`
+Eclipse Plugin
+VSCode Extension
+:doc:`../api-guides/tools/idf-monitor`
+.. toctree::
+    :hidden:
+    :maxdepth: 1
+
+    establish-serial-connection
+    flashing-troubleshooting
 
 
 
