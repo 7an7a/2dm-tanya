@@ -107,10 +107,126 @@ ESP-IDF is downloaded into ``~/esp/esp-idf``.
 
 Aside from the ESP-IDF, you also need to install the tools used by ESP-IDF, such as the compiler, debugger, Python packages, etc, for projects supporting {IDF_TARGET_NAME}.
 
-.. code-block:: bash
 
-    cd ~/esp/esp-idf
-    ./install.sh {IDF_TARGET_PATH_NAME}
+```
+cd ~/esp/esp-idf
+./install.sh esp32
+```
+
+The above commands install tools for {IDF_TARGET_NAME} only. If you intend to develop projects for more chip targets then you should list all of them and run for example:
+
+
+```
+cd ~/esp/esp-idf
+./install.sh esp32,esp32s2
+```
+In order to install tools for all supported targets please run the following command:
+
+```
+cd ~/esp/esp-idf
+./install.sh all
+```
+
+*note*
+   For macOS users, if an error like this is shown during any step
+```
+     <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:xxx)
+```
+   You may run ``Install Certificates.command`` in the Python folder of your computer to install certificates. For details, see [Download Error While Installing ESP-IDF Tools](https://github.com/espressif/esp-idf/issues/4775)
+
+
+**Step 4. Set up the Environment Variables**
+
+The installed tools are not yet added to the PATH environment variable. To make the tools usable from the command line, some environment variables must be set. ESP-IDF provides another script which does that.
+
+In the terminal where you are going to use ESP-IDF, run:
+
+```
+. $HOME/esp/esp-idf/export.sh
+```
+
+or for fish (supported only since fish version 3.0.0):
+```
+. $HOME/esp/esp-idf/export.fish
+```
+
+Note the space between the leading dot and the path!
+
+If you plan to use esp-idf frequently, you can create an alias for executing ``export.sh``:
+
+1.  Copy and paste the following command to your shell's profile (``.profile``, ``.bashrc``, ``.zprofile``, etc.)
+
+```
+alias get_idf='. $HOME/esp/esp-idf/export.sh'
+```
+
+2.  Refresh the configuration by restarting the terminal session or by running ``source [path to profile]``, for example, ``source ~/.bashrc``.
+
+*More detailed steps are*
+1. Getting what type of shell your Macbook is running
+
+Normally everyone's computer runs:
+
+```
+echo $SHELL
+```
+it gonna shows ``/bin/zsh``
+
+then runs：
+
+```
+vi ～/.zprofile
+```
+
+To edit, you need to press the I key，run：
+
+
+```
+alias get_idf='. $HOME/esp/esp-idf/export.sh'
+```
+press esc, and run:
+
+
+```
+:wq
+```
+At this point, run the command again to verify that the command line you just entered `` alias get_idf='. $HOME/esp/esp-idf/export.sh' ``is still there.
+
+
+
+```
+alias get_idf='. $HOME/esp/esp-idf/export.sh'
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Now you can run ``get_idf`` to set up or refresh the esp-idf environment in any terminal session.
+
+Technically, you can add ``export.sh`` to your shell's profile directly; however, it is not recommended. Doing so activates IDF virtual environment in every terminal session (including those where IDF is not needed), defeating the purpose of the virtual environment and likely affecting other software.
+
+
+
+
+
+
+
+
+
 
 
 
